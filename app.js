@@ -7,6 +7,17 @@ module.exports = async function (fastify, opts) {
   // Place here your custom code!
   fastify.register(require('fastify-axios'), {
   })
+  fastify.register(require('@fastify/cors'), (instance) => {
+    return (req, callback) => {
+      const corsOptions = {
+        // This is NOT recommended for production as it enables reflection exploits
+        origin: true
+      };
+
+      // callback expects two parameters: error and options
+      callback(null, corsOptions)
+    }
+  })
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins
