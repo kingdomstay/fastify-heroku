@@ -7,7 +7,7 @@ module.exports = async function (fastify, opts) {
   // Place here your custom code!
   fastify.register(require('fastify-axios'), {
   })
-  fastify.register(require('@fastify/cors'), (instance) => {
+  fastify.register(require('fastify-cors'), (instance) => {
     return (req, callback) => {
       const corsOptions = {
         // This is NOT recommended for production as it enables reflection exploits
